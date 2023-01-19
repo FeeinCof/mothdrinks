@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import "./globals.css";
-import { AgeGateConfirmationBox } from "@/components";
+import { AgeGateConfirmationBox, ChatBox } from "@/components";
 interface ReactNode {
   children: React.ReactNode;
 }
@@ -28,6 +28,7 @@ export default function RootLayout({ children }: ReactNode) {
       */}
       <head />
       <body>
+        <ChatBox />
         {ageConfirmed ? (
           children
         ) : (
