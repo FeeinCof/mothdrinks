@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./ChatBox.module.css";
-import { chat, sleeping, send, arrow_down } from "@/assets/icons";
+import { chat, sleeping, send, arrow_down, remove } from "@/assets/icons";
 import MOTH from "@/assets/images/MOTH.png";
 import logo from "@/assets/images/logo.png";
 import { useState } from "react";
@@ -11,6 +11,13 @@ export default function ChatBox() {
   };
   return (
     <>
+      <div className={styles.chat_button} onClick={() => toggleChat()}>
+        {isChatShow ? (
+          <Image src={remove} alt="icon" width={58} />
+        ) : (
+          <Image src={chat} alt="icon" width={58} />
+        )}
+      </div>
       {isChatShow && (
         <div className={styles.chat_container}>
           <Image
@@ -56,9 +63,6 @@ export default function ChatBox() {
           </form>
         </div>
       )}
-      <div className={styles.chat_button} onClick={() => toggleChat()}>
-        <Image src={chat} alt="icon" width={58} />
-      </div>
     </>
   );
 }
